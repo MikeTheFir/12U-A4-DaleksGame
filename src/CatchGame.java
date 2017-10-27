@@ -73,20 +73,10 @@ public class CatchGame {
         // check to see if anything crashed when it was spawned in
         if (hasDoctorCrashed() == true || Dalek1.hasCrashed(Dalek2)
                 || Dalek1.hasCrashed(Dalek3) || Dalek2.hasCrashed(Dalek3)) {
-            // remove original pegs
-            b.removePeg(Doctor.getRow(), Doctor.getCol());
-            b.removePeg(Dalek1.getRow(), Dalek1.getCol());
-            b.removePeg(Dalek2.getRow(), Dalek2.getCol());
-            b.removePeg(Dalek3.getRow(), Dalek3.getCol());
-            // put down new pegs
-            //Doctor
-            b.putPeg(Color.GREEN, (int) (Math.random() * 12), (int) (Math.random() * 12));
-            // Dalek1
-            b.putPeg(Color.BLACK, (int) (Math.random() * 12), (int) (Math.random() * 12));
-            // Dalek2
-            b.putPeg(Color.BLACK, (int) (Math.random() * 12), (int) (Math.random() * 12));
-            // Dalek3
-            b.putPeg(Color.BLACK, (int) (Math.random() * 12), (int) (Math.random() * 12));
+            // tell palyer they lost and to start over
+            b.displayMessage("ERROR OCCURED. PLEASE RESTART GAME.");
+            finished = true;
+            
         }
 
         // as long as the doctor and one dalek are alive keep playing
